@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* pagina mural */
+body {background-color: #f0f0f0;
+  background-image: url(../img/fundo\ cinza.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.dash {
+}
+
+/* NAVEGACAO LATERAL */
+.header-left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 100vh;
+  width: 23%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-right: 4px solid ;
+  background-color: #212121;
+}
+
+/* LOGO */
+.janela img{ 
+  height: 150px;
+  width: 160px;
+  border: 1px solid #f0f0f0;
+  border-radius: 100%;
+}
+
+/* TEXTO USUARIO */
+.hello {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hello h3 {
+  color: #f0f0f0;
+  font-weight: 300; 
+  font-size: 1.2rem;
+}
+
+.hello h3 span {
+  font-weight: 800;
+}
+/* TEXTO SOBRE O QUE É ESSA DASHBORD */
+.btn-nav-white {
+  font-size: 15px;
+  text-align: center;
+  color: #f0f0f0;
+}
+
+/* BOTAO DE SAIR */
+.btn-logout {
+  width: 50%;
+  height: 45px;
+  background: #0f0f0f;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 22px;
+  color: #f0f0f0;
+  text-align: center;
+  padding: 3px;
+}
+
+.btn-logout:hover{
+  background-color: #161616ec;
+}
+
+/* MENSAGENS DE ACORDO COM O RESULTADO  */
+.regua {
+  display: flex;
+  padding: 3%;
+  font-family: "Poppins", sans-serif; 
+}
+
+.item-regua {
+  text-align: center;
+  width: 70%;
+  height: 105px;
+  border-radius: 13px;
+  margin-left: 20%;
+  padding: 2% 2%;
+  box-shadow: rgba(122, 151, 177, 0.548) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+
+/* TITULO DA KPI */
+.item-regua h4 {
+  color: #f0f0f0;
+  font-size: 30px;
+}
+/* TEXTO DA KPI */
+.item-regua h2 {
+  color: #f0f0f0;
+  font-size: 18px;
+}
+
+#poucoacesso {
+  display: none;
+  background-color: #c63637;
+}
+
+#medioacesso {
+  display: none;
+  background-color: #ecec0c;
+}
+
+#muitoacesso {
+  display: none;
+  background-color: #5CA55C;
+}
+
+
+/* DIV PAO DA DASHBORD */
+#img_fundo {
+  margin: 4% 0;
+  padding: 0 6.875rem;
+  background-color: #f0f0f0;
+  border-radius: 30px;
+  height: 80vh;
+  border: 1px solid #212121;
+
+  display: flex;
+  flex-direction: column-reverse;
+  max-width: 80%;
+  width: 74.5%;
+  position: absolute;
+  top: 0;
+  left: 24%;
+}
+
+/* CLASS DA DASHBORD*/
+#myChart {
+  width: 37.5rem;
+  border: 1px solid rgba(216, 216, 216, 0.473);
+  margin-bottom:7%;
+}

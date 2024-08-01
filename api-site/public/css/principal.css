@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: #1a1a1a;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: #f0f0f0;
+}
+
+.container{
+    margin-top: 100px;
+    background-color: #212121;
+    width: 98%;
+    height: 97%;;
+    border-radius: 13px;
+    align-items: center;
+}
+
+.imagem_fundo {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    border-radius: 13px;
+    margin-bottom: 40px;
+
+    background-image: url(../img/proveta.jpg);
+    background-repeat: no-repeat;  
+    background-size: cover;
+    background-position: top
+} /* imagem de fundo */
+
+.navegacao :hover{
+    border-radius: 10px;
+    text-decoration: underline 2px;
+}
+
+/* Div dos textos*/
+.box-values {
+    /* background-color: #fbf4ea18; */
+    text-align: center;
+    margin-bottom: 3.125rem;
+}
+
+.values-content h1,
+/* .box-resenha h1,
+.text-content h1,  */
+.text h1{
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 2.5rem;
+    line-height: 4.375rem;
+
+}
+
+.values-content p,
+.box-resenha p,
+.text p{
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 2.8125rem;
+    margin-bottom: 0.9375rem;
+}
+
+/* div dos quadrados valores */
+.caixinha {
+    display: flex;
+    /* justify-content: space-between; */
+    flex-direction: row;
+    gap: 8.75rem;
+    /* margin: 0 70px 10px 70px; */
+}
+
+.caixinha-information  {
+    width: 21.25rem;
+    height: 27.5rem;
+    border-radius: 13px;
+    /* border-radius: 3.125rem 0.1875rem 3.125rem 0.1875rem; */
+    transition: transform 0.5s ease-in-out;transition: transform 0.3s ease;
+}
+.caixinha-information:hover {
+    background-color: #1a1a1a;
+    transform: translateY(20px);
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.text-content {
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.text-content p {
+    word-spacing: 3px;
+    padding: 40px;
+    white-space: 20px;
+    font-size: larger;
+    line-height: 1.5;
+
+}
+
+.footer {
+    height: 40px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    background-color: #1a1a1a;
+}
+
+.footer p {
+    padding: 10px;
+}

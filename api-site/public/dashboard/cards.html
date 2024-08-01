@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/img/fave.svg" type="image/x-icon">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="dashboards.css">
+    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+    <title>Dashboards</title>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/funcoes.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+</head>
+
+<body onload="validarSessao()">
+
+    <div class="janela">
+        <div class="header-left dash-header">
+            <img src="../img/logo.png">
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <h3>Essa é uma dashboard a respeito dos estilos mais escolhidos entre os usuários</h3>
+            </div>
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+
+        </div>
+
+        <div id="img_fundo" class="dash">
+            <div class="regua">
+
+                <div class="item-regua" id="poucoacesso">
+                    <h4>Abaixo da Média</h4>
+                    <h2>Poucos usuários escolhem esse estilo</h2>
+                </div>
+
+                <div class="item-regua" id="medioacesso">
+                    <h4>Está na média</h4>
+                    <h2>Normalmente os usuários escolhem esse estilo</h2>
+                </div>
+
+                <div class="item-regua" id="muitoacesso" >
+                    <h4>Acima da Média</h4>
+                    <h2>Muitos usuários escolhem esse estilo </h2>
+                </div>
+
+            </div>
+            
+            <div>
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+      const ctx = document.getElementById('myChart'); 
+
+    img_fundo.style.backgroundImage = 'url(' + sessionStorage.CAMINHO_IMG + ')';
+
+    plotargrafico()
+    function plotargrafico() {
+        fetch("/usuarios/plotargrafico")   // Fetch - vai buscar os dados através do objeto JSON  
+            .then(resposta => {
+
+                resposta.json().then(json => {
+                    console.log(json)
+                    let estilos = json.map(obj => obj.estiloEscolhido)  // Essa variável vai buscar a propriedade "livro Preferido"  
+                    console.log(estilos)    //  vai percorrer o vetor e trazer apenas os elementos "estilos preferidos"
+                    let qtd = json.map(obj => obj.qtd)  //  Da mesma forma, esse vai buscar a quantidade de gráficos que há no site
+                    console.log(qtd)
+                    let max = Math.max.apply(null, qtd) //  Math que traz valores constantes, um obj do JS
+                        // Estou trazendo os valores maximos, do obg qtd (Que são os quadros que já foram escolhidos)
+
+                    var soma = 0;
+                    for (var i = 0; i < qtd.length; i++) {
+                        soma = soma + qtd[i]
+                    }   //  For para "varrer meu vetor" ele vai continuar enquanto essa condição for verdadeira
+                        //  O find é de "Encontrar", logo, ele vai encontrar e me trazer através do obj JSON
+                    let fks = json.find(obj => obj.fkEstilo == sessionStorage.fkEstilo)  //  Buscando a variável de sessão Fk, para trazer os estilos fav do usuario logado
+                    var media = (soma / qtd.length).toFixed(2); //  Op mat para fazer a métrica do Analytics
+                    console.log(media)  //  Vou dividir a soma de todos os estilos escolhidos e dividir pelo seu comprimento (length) assim terei a média
+                    console.log(soma)   //  Após ter a média, posso trazer os alertas para o usuário
+                    console.log(qtd.length)
+
+                        //  Estrutura de decisão do Analytics (If, else básico)
+                    if (fks.qtd > media) {  //  Caso as fks do livroo do usuário for maior que a média, vai aparecer um aviso notificando isso
+                        muitoacesso.style.display = "block"
+                    } else if (fks.qtd == media) {  //  Caso as fks do livro do usuário for igual que a média, vai aparecer um aviso notificando isso
+                        medioacesso.style.display = "block"
+                    } else if (fks.qtd < media) {   //  Caso as fks do livro do usuário for menor que a média, vai aparecer um aviso notificando isso
+                        poucoacesso.style.display = "block"
+                    }
+
+                    console.log(fks.qtd)
+
+                        //  Criação do Grafico
+                     new Chart(ctx, {
+                        type: 'bar',    
+                        data: {
+                            labels: estilos,
+                            datasets: [ 
+                                {
+                                    label: "ESTILOS PREFERIDOS DOS USUÁRIOS",   
+                                    data: qtd,  
+                                    color: "#212121",
+                                    backgroundColor: "#212121",
+                                    fontSize: 25,
+                                    fontFamily: "'Permanent Marker', cursive;",
+                                    borderColor: "#212121",
+                                    scaleOverride: true,
+                                    scaleSteps: 1,
+                                    scaleStartValue: 0,
+                                    scaleStepWidth: 1
+                                    
+                                },    
+                            ]
+                        },
+                        options: { 
+                            maintainAspectRatio: false,
+                            responsive: true,
+
+                            scales: {  
+                                y: {
+                                    min: 0,
+                                    max: max + 4,
+                                },
+                                yAxes: {    
+                                    ticks: {
+                                        stepSize: 1,
+                                        fontFamily: "Permanent Marker, cursive",
+                                        fontSize: 20,
+                                    }
+                                },
+                            }
+                        }
+                    })
+                    
+                    var myChartLine = new Chart(document.getElementById("mychart"), config);   
+            
+                });
+            })
+    }
+</script>
