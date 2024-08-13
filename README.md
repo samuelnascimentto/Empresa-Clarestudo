@@ -2,8 +2,8 @@
 
 Projeto pessoal sobre estudo do clarinete, demonstrando minhas habilidades em HTML, CSS e JavaScript.
 
+![Clarestudo](https://github.com/user-attachments/assets/17ce2752-b038-4bb6-83fa-960027b922e9)
 
-![](images/home-page.png)
 
 ## Tecnologias Utilizadas
 
