@@ -1,8 +1,9 @@
 # Empresa Clarestudo
 
-Projeto pessoal sobre estudo do clarinete, demonstrando minhas habilidades em HTML, CSS e JavaScript.
+Projeto pessoal sobre estudo do clarinete, demonstrando minhas habilidades em HTML, CSS, JavaScript, Json, Mysql e Node.js.
 
-![Clarestudo](https://github.com/user-attachments/assets/17ce2752-b038-4bb6-83fa-960027b922e9)
+
+![clarestudo](https://github.com/user-attachments/assets/11d4e716-9012-4418-a780-221a244e8ffb)
 
 
 ## Tecnologias Utilizadas
