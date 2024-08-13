@@ -14,7 +14,7 @@ Projeto pessoal sobre estudo do clarinete, demonstrando minhas habilidades em HT
 - **Mysql** - Seleção dos dados envidados de acordo com o pacote Json.
 - **Node.js** - interatividade, validações e arquivos Json no site.
 
-## Future Improvements
+## Futuras implementações
 
 - Melhorar a responsividade para diferentes tamanhos de tela.
 - Melhorar a acessibilidade e a experiência geral do usuário.
