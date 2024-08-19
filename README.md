@@ -2,8 +2,8 @@
 
 Projeto pessoal sobre estudo do clarinete, demonstrando minhas habilidades em HTML, CSS, JavaScript, Json, Mysql e Node.js.
 
+![Untitled design](https://github.com/user-attachments/assets/5d547c8e-3871-4a66-aae2-9f35233633cc)
 
-![clarestudo](https://github.com/user-attachments/assets/11d4e716-9012-4418-a780-221a244e8ffb)
 
 
 ## Tecnologias Utilizadas
